@@ -1,5 +1,3 @@
-//new version
-
 let storage = {
     displayValue: "0",
     firstNum: null,
@@ -39,6 +37,7 @@ keys.addEventListener('click', (event) => {
     return;
   }
   if (target.classList.contains('decimal')) {
+    if (storage.secondNumReady) {return;}
     if (!storage.displayValue.includes(target.value)) {
         storage.displayValue += target.value;
         update();
@@ -56,7 +55,7 @@ keys.addEventListener('click', (event) => {
     return;
   }
   input(target.value);
-    update();
+  update();
 });
 
 const operatorInput = (op) => {
@@ -64,6 +63,11 @@ const operatorInput = (op) => {
     let displayValue = storage.displayValue
     let operator = storage.operator
     let inputValue = parseFloat(displayValue); //convert string to float!
+    if (operator && storage.secondNumReady) {
+        storage.operator = op;
+        showOperator(storage.firstNum, storage.operator);
+        return;
+    }
     if (firstNum === null) {
       storage.firstNum = inputValue;
     } else if (operator) {
