@@ -2,22 +2,20 @@
 
 const storage = {
     displayValue: "",
-    firstOperand: null,
-    waitingForSecondOperand: false,
+    firstNum: null,
+    SecondNum: false,
     operator: null,
 };
 
 function input(num) {
-    const displayValue = storage.displayValue;
-    storage.displayValue = displayValue === '0' ? num : displayValue + num;
+    const current = storage.displayValue;
+    storage.displayValue = current + num;
   }
 
-function updateDisplay() {
+function update() {
     const display = document.querySelector('.screen');
     display.value = storage.displayValue;
 }
-  
-updateDisplay();
 
 const keys = document.querySelector('.keys');
 keys.addEventListener('click', (event) => {
@@ -27,15 +25,15 @@ keys.addEventListener('click', (event) => {
   }
 
   if (target.classList.contains('operator')) {
-    input(target.value);
-    updateDisplay();
+    operatorInput(target.value);
+    update();
     return;
   }
 
   if (target.classList.contains('decimal')) {
     if (!storage.displayValue.includes(target.value)) {
         storage.displayValue += target.value;
-        updateDisplay();
+        update();
         return;
     }
     return;
@@ -46,10 +44,28 @@ keys.addEventListener('click', (event) => {
     storage.firstOperand = null;
     storage.waitingForSecondOperand = false;
     storage.operator = null;
-    updateDisplay();
+    update();
     return;
   }
 
   input(target.value);
-    updateDisplay();
+    update();
 });
+
+function operatorInput(op) {
+    const firstNum = storage.firstNum
+    const displayValue = storage.displayValue
+    const operator = storage.operator
+    const inputValue = parseFloat(displayValue); //convert string to float!
+    if (firstNum === null) {
+      storage.firstNum = inputValue;
+    }
+    storage.operator = op;
+    storage.SecondNum = true;
+    
+}
+
+
+// add calculation function 
+// make equals button run calculaation function
+// make operators run calculation function on the fly.
