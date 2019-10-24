@@ -1,6 +1,6 @@
 //new version
 
-const storage = {
+var storage = {
     displayValue: "",
     firstNum: null,
     secondNumReady: false,
@@ -9,8 +9,8 @@ const storage = {
 
 function input(num) {
     const displayValue = storage.displayValue;
-    const secondNum = storage.secondNumReady;
-    if (secondNum === true) {
+    const secondNumReady = storage.secondNumReady;
+    if (secondNumReady === true) {
         storage.displayValue = num;
         storage.secondNumReady = false;
     } else {
@@ -65,25 +65,36 @@ function operatorInput(op) {
     const inputValue = parseFloat(displayValue); //convert string to float!
     if (firstNum === null) {
       storage.firstNum = inputValue;
+    } else if (operator) {
+        const result = calculate(firstNum, inputValue); 
+        console.log(result);
+        displayValue = String(result);
+        firstNum = result;
     }
     storage.operator = op;
-    storage.secondNum = true;
+    storage.secondNumReady = true;
     console.log(storage);
 }
 
-switch(operator) {
-    case "+":
-        function (firstNum, secondNum) {return firstNum + secondNum;};
-        break;
-    case "-":
-        function (firstNum, secondNum) {return firstNum - secondNum;};
-        break;
-    case "*":
-        function (firstNum, secondNum) {return firstNum * secondNum;};
-        break;
-    case "/":
-        function (firstNum, secondNum) {return firstNum / secondNum;}:
+function calculate(a, b) {
+    const answer = "";
+    const operator = storage.operator;
+    switch(operator) {
+        case "+":
+            answer = a + b;
+            break;
+        case "-":
+            answer = a - b;
+            break;
+        case "*":
+            answer = a * b;
+            break;
+        case "/":
+            answer = a / b;
+    }
+    return answer;
 }
+
 
 
 // add calculation function 
