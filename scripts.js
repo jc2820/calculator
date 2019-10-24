@@ -33,7 +33,12 @@ keys.addEventListener('click', (event) => {
     return;
   }
   if (target.classList.contains('decimal')) {
-    if (secondNumReady) {return;}
+    //if (secondNumReady) {return;}
+    if (secondNumReady) {
+        displayValue = "0" + target.value;
+        update();
+        return;
+    }
     if (!displayValue.includes(target.value)) {
         displayValue += target.value;
         update();
@@ -50,8 +55,13 @@ keys.addEventListener('click', (event) => {
     update();
     return;
   }
+  if (displayValue === "0.") {
+      input("0." + target.value);
+      update();
+  } else {
   input(target.value);
   update();
+  }
 });
 
 const operatorInput = (op) => {
