@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:navy;
+  font-size: 2rem;
+}
+
+body {
+  background-color: white;
+}
+
+#container {
+  width:350px;
+  padding: 0;
+  border: 2px dotted navy;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#display {
+  width: 325px;
+  
+  border: 2px dotted navy;
+  padding:0;
+}
+
+.screen {
+  width: 320px;
+  height: 60px;
+  text-align: right;
+  margin: 0px;
+  font-size: 2rem;
+  /*border:none;*/
+  background-color: white;
+  padding-right:5px;
+}
+
+.operatorscreen {
+  width: 320px;
+  height: 30px;
+  text-align: left;
+  margin: 0px;
+  font-size: 1rem;
+  padding-left:10px;
+  /*border:none;*/
+  background-color: white;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+button {
+  width: 74px;
+  height: 74px;
+  margin-right: 10px;
+  background-color: white;
+  border: 2px dotted navy;
+  color: navy;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+
+button:active {
+  border: 2px dotted yellow;
+  color: yellow;
+}
+
+button:focus {outline:0;} 
+
+.equalsbutton {
+  height: 74px;
+  width: 390px;
+  margin-right: 10px;
+  background-color: white;
+  border: 2px dotted navy;
+  color: navy;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.equalsbutton:active {
+  border: 2px dotted yellow;
+  color: yellow;
+}
+
+.equalsbutton:focus {outline:0;} 
