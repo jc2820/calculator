@@ -3,16 +3,16 @@
 const storage = {
     displayValue: "",
     firstNum: null,
-    secondNum: false,
+    secondNumReady: false,
     operator: null,
 };
 
 function input(num) {
     const displayValue = storage.displayValue;
-    const secondNum = storage.secondNum;
+    const secondNum = storage.secondNumReady;
     if (secondNum === true) {
         storage.displayValue = num;
-        storage.secondNum = false;
+        storage.secondNumReady = false;
     } else {
     storage.displayValue = displayValue + num;
     }
@@ -48,7 +48,7 @@ keys.addEventListener('click', (event) => {
   if (target.classList.contains('all-clear')) {
     storage.displayValue = "";
     storage.firstOperand = null;
-    storage.waitingForSecondOperand = false;
+    storage.secondNumReady = false;
     storage.operator = null;
     update();
     return;
@@ -69,6 +69,20 @@ function operatorInput(op) {
     storage.operator = op;
     storage.secondNum = true;
     console.log(storage);
+}
+
+switch(operator) {
+    case "+":
+        function (firstNum, secondNum) {return firstNum + secondNum;};
+        break;
+    case "-":
+        function (firstNum, secondNum) {return firstNum - secondNum;};
+        break;
+    case "*":
+        function (firstNum, secondNum) {return firstNum * secondNum;};
+        break;
+    case "/":
+        function (firstNum, secondNum) {return firstNum / secondNum;}:
 }
 
 
