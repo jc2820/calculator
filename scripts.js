@@ -1,28 +1,24 @@
-let storage = {
-    displayValue: "0",
-    firstNum: null,
-    secondNumReady: false,
-    operator: null,
-};
+let displayValue = "0";
+let firstNum = null;
+let secondNumReady = false;
+let operator = null;
 
 const input = (num) => {
-    let displayValue = storage.displayValue;
-    let secondNumReady = storage.secondNumReady;
     if (secondNumReady === true) {
-        storage.displayValue = num;
-        storage.secondNumReady = false;
+        displayValue = num;
+        secondNumReady = false;
     } else {
         if (displayValue === "0") {
-            storage.displayValue = num;
+            displayValue = num;
         } else {
-            storage.displayValue = displayValue + num;
+            displayValue = displayValue + num;
         }
     }
   }
 
 const update = () => {
     let display = document.querySelector('.screen');
-    display.value = storage.displayValue;
+    display.value = displayValue;
 }
 
 let keys = document.querySelector('.keys');
@@ -37,19 +33,19 @@ keys.addEventListener('click', (event) => {
     return;
   }
   if (target.classList.contains('decimal')) {
-    if (storage.secondNumReady) {return;}
-    if (!storage.displayValue.includes(target.value)) {
-        storage.displayValue += target.value;
+    if (secondNumReady) {return;}
+    if (!displayValue.includes(target.value)) {
+        displayValue += target.value;
         update();
         return;
     }
     return;
   }
   if (target.classList.contains('all-clear')) {
-    storage.displayValue = "0";
-    storage.firstNum = null;
-    storage.secondNumReady = false;
-    storage.operator = null;
+    displayValue = "0";
+    firstNum = null;
+    secondNumReady = false;
+    operator = null;
     showOperator("","");
     update();
     return;
@@ -59,32 +55,28 @@ keys.addEventListener('click', (event) => {
 });
 
 const operatorInput = (op) => {
-    let firstNum = storage.firstNum
-    let displayValue = storage.displayValue
-    let operator = storage.operator
     let inputValue = parseFloat(displayValue); //convert string to float!
-    if (operator && storage.secondNumReady) {
-        storage.operator = op;
-        showOperator(storage.firstNum, storage.operator);
+    if (operator && secondNumReady) {
+        operator = op;
+        showOperator(firstNum, operator);
         return;
     }
     if (firstNum === null) {
-      storage.firstNum = inputValue;
+      firstNum = inputValue;
     } else if (operator) {
         let result = calculate(firstNum, inputValue); 
-        storage.displayValue = String(result);
-        storage.firstNum = result;
-        showOperator(storage.firstNum, storage.operator);
+        let roundedResult = round(result, 5);
+        displayValue = String(roundedResult);
+        firstNum = roundedResult;
+        showOperator(firstNum, operator);
     }
-    storage.operator = op;
-    storage.secondNumReady = true;
-    console.log(storage);
-    showOperator(storage.firstNum, storage.operator)
+    operator = op;
+    secondNumReady = true;
+    showOperator(firstNum, operator)
 }
 
 const calculate = (a, b) => {
     let answer = "";
-    let operator = storage.operator;
     switch(operator) {
         case "+":
             answer = a + b;
@@ -104,9 +96,11 @@ const calculate = (a, b) => {
     return answer;
 }
 
+const round = (value, decimals) =>  Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+
 const showOperator = (x, y) => {
     let signArea = document.querySelector(".operatorscreen");
-    if (storage.operator === "=") {
+    if (operator === "=") {
         signArea.value = y;
     } else {
         let symbol;
@@ -129,4 +123,3 @@ const showOperator = (x, y) => {
     signArea.value = x.toString() + symbol;
     }
 }
-
