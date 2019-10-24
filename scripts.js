@@ -86,6 +86,9 @@ const calculate = (a, b) => {
             break;
         case "/":
             answer = a / b;
+            break;
+        case "=":
+            answer = b;
     }
     return answer;
 }
