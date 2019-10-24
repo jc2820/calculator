@@ -18,6 +18,8 @@ body {
   padding-bottom: 10px;
 }
 
+
+
 #display {
   width: 325px;
   
@@ -69,8 +71,8 @@ button {
 
 
 button:active {
-  border: 2px dotted yellow;
-  color: yellow;
+  border: 2px dotted green;
+  color: green;
 }
 
 button:focus {outline:0;} 
@@ -89,8 +91,8 @@ button:focus {outline:0;}
 }
 
 .equalsbutton:active {
-  border: 2px dotted yellow;
-  color: yellow;
+  border: 2px dotted green;
+  color: green;
 }
 
 .equalsbutton:focus {outline:0;} 
