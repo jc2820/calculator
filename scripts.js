@@ -7,9 +7,9 @@ const storage = {
     operator: null,
 };
 
-function input(digit) {
+function input(num) {
     const displayValue = storage.displayValue;
-    storage.displayValue = displayValue === '0' ? digit : displayValue + digit;
+    storage.displayValue = displayValue === '0' ? num : displayValue + num;
   }
 
 function updateDisplay() {
@@ -33,8 +33,11 @@ keys.addEventListener('click', (event) => {
   }
 
   if (target.classList.contains('decimal')) {
-    input(target.value);
-    updateDisplay();
+    if (!storage.displayValue.includes(target.value)) {
+        storage.displayValue += target.value;
+        updateDisplay();
+        return;
+    }
     return;
   }
 
