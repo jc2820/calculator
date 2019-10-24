@@ -101,6 +101,24 @@ const showOperator = (x, y) => {
     if (storage.operator === "=") {
         signArea.value = y;
     } else {
-    signArea.value = x.toString() + y;
+        let symbol;
+        switch(y) {
+            case "*":
+                symbol = "x";
+                break;
+            case "/":
+                symbol = "÷";
+                break;
+            case "+":
+                symbol = "+";
+                break;
+            case "-":
+                symbol = "-";
+                break;
+            default:
+                symbol = "";
+        }
+    signArea.value = x.toString() + symbol;
     }
 }
+
