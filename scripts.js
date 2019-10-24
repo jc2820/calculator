@@ -1,11 +1,23 @@
 //new version
 
-const calculator = {
-    displayValue: '0',
+const storage = {
+    displayValue: "",
     firstOperand: null,
     waitingForSecondOperand: false,
     operator: null,
-  };
+};
+
+function input(digit) {
+    const displayValue = storage.displayValue;
+    storage.displayValue = displayValue === '0' ? digit : displayValue + digit;
+  }
+
+function updateDisplay() {
+    const display = document.querySelector('.screen');
+    display.value = storage.displayValue;
+}
+  
+updateDisplay();
 
 const keys = document.querySelector('.keys');
 keys.addEventListener('click', (event) => {
@@ -15,19 +27,23 @@ keys.addEventListener('click', (event) => {
   }
 
   if (target.classList.contains('operator')) {
-    console.log('operator', target.value);
+    input(target.value);
+    updateDisplay();
     return;
   }
 
   if (target.classList.contains('decimal')) {
-    console.log('decimal', target.value);
+    input(target.value);
+    updateDisplay();
     return;
   }
 
   if (target.classList.contains('all-clear')) {
-    console.log('clear', target.value);
+    input(target.value);
+    updateDisplay();
     return;
   }
 
-  console.log('digit', target.value);
+  input(target.value);
+    updateDisplay();
 });
