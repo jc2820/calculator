@@ -4,9 +4,14 @@ let secondNumReady = false;
 let operator = null;
 
 const input = (num) => {
-    if (secondNumReady === true) {
+    if (secondNumReady) {
+        if (displayValue === "0.") {
+            displayValue = displayValue + num;
+            secondNumReady = false;
+        } else {
         displayValue = num;
         secondNumReady = false;
+        }
     } else {
         if (displayValue === "0") {
             displayValue = num;
@@ -33,9 +38,8 @@ keys.addEventListener('click', (event) => {
     return;
   }
   if (target.classList.contains('decimal')) {
-    //if (secondNumReady) {return;}
     if (secondNumReady) {
-        displayValue = "0" + target.value;
+        displayValue = "0.";
         update();
         return;
     }
@@ -55,13 +59,8 @@ keys.addEventListener('click', (event) => {
     update();
     return;
   }
-  if (displayValue === "0.") {
-      input("0." + target.value);
-      update();
-  } else {
   input(target.value);
   update();
-  }
 });
 
 const operatorInput = (op) => {
