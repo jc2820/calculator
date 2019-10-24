@@ -31,19 +31,20 @@ body {
   text-align: right;
   margin: 0px;
   font-size: 2rem;
-  /*border:none;*/
+  border:none;
   background-color: white;
   padding-right:5px;
 }
 
 .operatorscreen {
+  display: block;
   width: 320px;
   height: 30px;
   text-align: left;
-  margin: 0px;
+  margin-top: 5px;
   font-size: 1rem;
   padding-left:10px;
-  /*border:none;*/
+  border:none;
   background-color: white;
 }
 
