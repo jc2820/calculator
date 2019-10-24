@@ -3,13 +3,19 @@
 const storage = {
     displayValue: "",
     firstNum: null,
-    SecondNum: false,
+    secondNum: false,
     operator: null,
 };
 
 function input(num) {
-    const current = storage.displayValue;
-    storage.displayValue = current + num;
+    const displayValue = storage.displayValue;
+    const secondNum = storage.secondNum;
+    if (secondNum === true) {
+        storage.displayValue = num;
+        storage.secondNum = false;
+    } else {
+    storage.displayValue = displayValue + num;
+    }
   }
 
 function update() {
@@ -61,8 +67,8 @@ function operatorInput(op) {
       storage.firstNum = inputValue;
     }
     storage.operator = op;
-    storage.SecondNum = true;
-    
+    storage.secondNum = true;
+    console.log(storage);
 }
 
 
