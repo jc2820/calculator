@@ -42,7 +42,10 @@ keys.addEventListener('click', (event) => {
   }
 
   if (target.classList.contains('all-clear')) {
-    input(target.value);
+    storage.displayValue = "";
+    storage.firstOperand = null;
+    storage.waitingForSecondOperand = false;
+    storage.operator = null;
     updateDisplay();
     return;
   }
