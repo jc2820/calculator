@@ -14,7 +14,11 @@ const input = (num) => {
         storage.displayValue = num;
         storage.secondNumReady = false;
     } else {
-    storage.displayValue = displayValue + num;
+        if (displayValue === "0") {
+            storage.displayValue = num;
+        } else {
+            storage.displayValue = displayValue + num;
+        }
     }
   }
 
@@ -104,16 +108,16 @@ const showOperator = (x, y) => {
         let symbol;
         switch(y) {
             case "*":
-                symbol = "x";
+                symbol = " x";
                 break;
             case "/":
-                symbol = "÷";
+                symbol = " ÷";
                 break;
             case "+":
-                symbol = "+";
+                symbol = " +";
                 break;
             case "-":
-                symbol = "-";
+                symbol = " -";
                 break;
             default:
                 symbol = "";
