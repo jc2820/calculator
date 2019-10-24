@@ -1,7 +1,7 @@
 //new version
 
 let storage = {
-    displayValue: "",
+    displayValue: "0",
     firstNum: null,
     secondNumReady: false,
     operator: null,
@@ -43,10 +43,11 @@ keys.addEventListener('click', (event) => {
     return;
   }
   if (target.classList.contains('all-clear')) {
-    storage.displayValue = "";
-    storage.firstOperand = null;
+    storage.displayValue = "0";
+    storage.firstNum = null;
     storage.secondNumReady = false;
     storage.operator = null;
+    showOperator("","");
     update();
     return;
   }
@@ -65,10 +66,12 @@ const operatorInput = (op) => {
         let result = calculate(firstNum, inputValue); 
         storage.displayValue = String(result);
         storage.firstNum = result;
+        showOperator(storage.firstNum, storage.operator);
     }
     storage.operator = op;
     storage.secondNumReady = true;
     console.log(storage);
+    showOperator(storage.firstNum, storage.operator)
 }
 
 const calculate = (a, b) => {
@@ -93,5 +96,11 @@ const calculate = (a, b) => {
     return answer;
 }
 
-// make equals button run calculaation function
-// make operators run calculation function on the fly.
+const showOperator = (x, y) => {
+    let signArea = document.querySelector(".operatorscreen");
+    if (storage.operator === "=") {
+        signArea.value = y;
+    } else {
+    signArea.value = x.toString() + y;
+    }
+}
