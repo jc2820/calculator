@@ -1,5 +1,12 @@
 //new version
 
+const calculator = {
+    displayValue: '0',
+    firstOperand: null,
+    waitingForSecondOperand: false,
+    operator: null,
+  };
+
 const keys = document.querySelector('.keys');
 keys.addEventListener('click', (event) => {
   const target = event.target;
