@@ -140,16 +140,3 @@ const showOperator = (x, y) => {
     signArea.value = x.toString() + symbol;
     }
 }
-
-document.onkeydown = (event) => {
-    if (event.keyCode == 48) {
-        input("0");
-        update();
-        return;
-    }
-    if (event.keyCode == 49) {
-        input("1");
-        update();
-        return;
-    }
-}
