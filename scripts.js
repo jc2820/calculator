@@ -26,6 +26,11 @@ const input = (num) => {
 //Updates the visible display with whatever the input function worked out
 const update = () => {
     let display = document.querySelector('.screen');
+    if (displayValue.length > 9) {
+        display.style.fontSize = "1rem"; //Make the display text smaller if the number is too long
+    } else {
+        display.style.fontSize = "2rem";
+    }
     display.value = displayValue;
 }
 
