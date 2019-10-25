@@ -174,6 +174,41 @@ document.onkeydown = (event) => {
             break;
         case 57:
             input("9");
+            break;
+        case 111:
+            operatorInput("/");
+            break;
+        case 109:
+            operatorInput("-");
+            break;
+        case 107:
+            operatorInput("+");
+            break;
+        case 106:
+            operatorInput("*");
+            break;
+        case 187:
+            operatorInput("=");
+            break;
+        case 67:
+            displayValue = "0";
+            firstNum = null;
+            secondNumReady = false;
+            operator = null;
+            showOperator("","");
+            break;
+        case 190:
+            if (secondNumReady) {
+                displayValue = "0."; 
+                update();
+                return;
+                }
+                if (!displayValue.includes(".")) {
+                displayValue += ".";
+                update();
+                return;
+                }
+            return;
     }
     update();
     return;
