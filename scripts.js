@@ -141,39 +141,40 @@ const showOperator = (x, y) => {
     }
 }
 
+//Add keyboard events
 document.onkeydown = (event) => {
-    let pressedKey;
-    switch(event) {
-        case event.keyCode == 48:
-            pressedKey = "0";
+    let pressedKey = "";
+    switch(event.keyCode) {
+        case 48:
+            input("0");
             break;
-        case event.keyCode == 49:
-            pressedKey = "1";
+        case 49:
+            input("1");
             break;
-        case event.keyCode == 50:
-            pressedKey = "2";
+        case 50:
+            input("2");
             break;
-        case event.keyCode == 51:
-            pressedKey = "3";
+        case 51:
+            input("3");
             break;
-        case event.keyCode == 52:
-            pressedKey = "4";
+        case 52:
+            input("4");
             break;
-        case event.keyCode == 53:
-            pressedKey = "5";
+        case 53:
+            input("5");
             break;
-        case event.keyCode == 54:
-            pressedKey = "6";
+        case 54:
+            input("6");
             break;
-        case event.keyCode == 55:
-            pressedKey = "7";
+        case 55:
+            input("7");
             break;
-        case event.keyCode == 56:
-            pressedKey = "8";
+        case 56:
+            input("8");
             break;
-        case event.keyCode == 57:
-            pressedKey = "9";
+        case 57:
+            input("9");
     }
-    input(pressedKey);
     update();
-}
+    return;
+} 
