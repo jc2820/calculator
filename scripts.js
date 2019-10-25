@@ -140,3 +140,40 @@ const showOperator = (x, y) => {
     signArea.value = x.toString() + symbol;
     }
 }
+
+document.onkeydown = (event) => {
+    let pressedKey;
+    switch(event) {
+        case event.keyCode == 48:
+            pressedKey = "0";
+            break;
+        case event.keyCode == 49:
+            pressedKey = "1";
+            break;
+        case event.keyCode == 50:
+            pressedKey = "2";
+            break;
+        case event.keyCode == 51:
+            pressedKey = "3";
+            break;
+        case event.keyCode == 52:
+            pressedKey = "4";
+            break;
+        case event.keyCode == 53:
+            pressedKey = "5";
+            break;
+        case event.keyCode == 54:
+            pressedKey = "6";
+            break;
+        case event.keyCode == 55:
+            pressedKey = "7";
+            break;
+        case event.keyCode == 56:
+            pressedKey = "8";
+            break;
+        case event.keyCode == 57:
+            pressedKey = "9";
+    }
+    input(pressedKey);
+    update();
+}
