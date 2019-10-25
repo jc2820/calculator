@@ -142,7 +142,7 @@ const showOperator = (x, y) => {
 }
 
 //Add keyboard events
-document.onkeydown = (event) => {
+document.addEventListener("keydown", event => {
     let pressedKey = "";
     switch(event.keyCode) {
         case 48:
@@ -175,19 +175,19 @@ document.onkeydown = (event) => {
         case 57:
             input("9");
             break;
-        case 111:
+        case 191:
             operatorInput("/");
             break;
-        case 109:
+        case 189:
             operatorInput("-");
             break;
-        case 107:
+        case 187:
             operatorInput("+");
             break;
-        case 106:
+        case 88:
             operatorInput("*");
             break;
-        case 187:
+        case 32:
             operatorInput("=");
             break;
         case 67:
@@ -212,4 +212,4 @@ document.onkeydown = (event) => {
     }
     update();
     return;
-} 
+}); 
