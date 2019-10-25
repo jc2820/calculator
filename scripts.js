@@ -145,3 +145,76 @@ const showOperator = (x, y) => {
     signArea.value = x.toString() + symbol;
     }
 }
+
+//Add keyboard events
+document.addEventListener("keydown", event => {
+    let pressedKey = "";
+    switch(event.keyCode) {
+        case 48:
+            input("0");
+            break;
+        case 49:
+            input("1");
+            break;
+        case 50:
+            input("2");
+            break;
+        case 51:
+            input("3");
+            break;
+        case 52:
+            input("4");
+            break;
+        case 53:
+            input("5");
+            break;
+        case 54:
+            input("6");
+            break;
+        case 55:
+            input("7");
+            break;
+        case 56:
+            input("8");
+            break;
+        case 57:
+            input("9");
+            break;
+        case 191:
+            operatorInput("/");
+            break;
+        case 189:
+            operatorInput("-");
+            break;
+        case 187:
+            operatorInput("+");
+            break;
+        case 88:
+            operatorInput("*");
+            break;
+        case 32:
+            operatorInput("=");
+            break;
+        case 67:
+            displayValue = "0";
+            firstNum = null;
+            secondNumReady = false;
+            operator = null;
+            showOperator("","");
+            break;
+        case 190:
+            if (secondNumReady) {
+                displayValue = "0."; 
+                update();
+                return;
+                }
+                if (!displayValue.includes(".")) {
+                displayValue += ".";
+                update();
+                return;
+                }
+            return;
+    }
+    update();
+    return;
+}); 
