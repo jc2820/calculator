@@ -15,8 +15,7 @@ body {
 }
 
 #container {
-  
-  width:350px;
+  width: 350px;
   padding: 0;
   border: 2px dotted navy;
   padding-left: 10px;
@@ -28,7 +27,7 @@ body {
   width: 325px;
   height: 117px;
   border: 2px dotted navy;
-  padding:0;
+  padding: 0;
 }
 
 .screen {
@@ -36,7 +35,7 @@ body {
   height: 60px;
   text-align: right;
   margin: 0px;
-  border:none;
+  border: none;
   padding-right:5px;
 }
 
@@ -72,7 +71,6 @@ button {
 button:active {
   border: 2px dotted blue;
   color: blue;
-  /*background-color: rgba(0, 0, 0, 0.1);*/
 }
 
 button:focus {outline:0;} 
@@ -91,7 +89,6 @@ button:focus {outline:0;}
 .equalsbutton:active {
   border: 2px dotted blue;
   color: blue;
-  /*background-color: rgba(0, 0, 0, 0.1);*/
 }
 
 .equalsbutton:focus {outline:0;} 
