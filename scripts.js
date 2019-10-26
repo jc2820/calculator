@@ -148,7 +148,6 @@ const showOperator = (x, y) => {
 
 //Add keyboard events
 document.addEventListener("keydown", event => {
-    let pressedKey = "";
     switch(event.keyCode) {
         case 48:
             input("0");
