@@ -1,15 +1,13 @@
 # Calculator
 
-Creating a calculator as precourse work for FAC winter 2019.
-[Check out the current version here] (https://jc2820.github.io/calculator/)
+Creating a calculator as precourse work for FAC winter 2019.  
+See the finished version here: https://jc2820.github.io/calculator/
 
-## Possible further improvements
+### Possible further improvements
+Commas automatically entered at appropriate thousands in the display.
 
-Delete button
+Backspace button
 
 positive/negative button (so it could run calculations like (x - -y) etc)
 
-Commas automatically entered at appropriate thousands in the display.
-
-Keyboard function for operator keys currently does not work cross browser - e.g. Firefox has a quicksearch function on the ?// key which is currently bound to divide.  
-The keybindings could be moved to the full keyboard numpad operator buttons, but as this is only for demo purposes and the keys currently work in Chrome this can remain as is for now.
+Key bindings for operator keys are currently set to the numpad operator buttons on a full keyboard. This is due to cross browser and OS laptop keyboard differences. It would be nice to find a nice workaround for any small keyboard.
