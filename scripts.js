@@ -183,7 +183,7 @@ document.addEventListener("keydown", event => {
         case 88:
             operatorInput("*");
             break;
-        case 13:
+        case 69:
             operatorInput("=");
             break;
         case 67:
