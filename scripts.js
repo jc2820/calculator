@@ -1,44 +1,40 @@
-//Storage for working variables
 let displayValue = "0";
 let firstNum = null;
 let secondNumReady = false;
 let operator = null;
 
-//Works out whether to append passed num to existing display or replace it
 const input = (num) => {
     if (secondNumReady) {
-        if (displayValue === "0.") { //If an operator clicked, then a decimal, appends to 0. 
+        if (displayValue === "0.") {
             displayValue = displayValue + num;
             secondNumReady = false;
         } else {
-        displayValue = num; //Otherwise just replace with the new number
+        displayValue = num;
         secondNumReady = false;
         }
     } else {
-        if (displayValue === "0") { //If no operator, replace default 0 with new number
+        if (displayValue === "0") {
             displayValue = num;
         } else {
-            displayValue = displayValue + num; //Unless there is already a number, then append
+            displayValue = displayValue + num;
         }
     }
   }
 
-//Updates the visible display with whatever the input function worked out
 const update = () => {
     let display = document.querySelector('.screen');
     if (displayValue.length > 9) {
-        display.style.fontSize = "1rem"; //Make the display text smaller if the number is too long
+        display.style.fontSize = "1rem";
     } else {
         display.style.fontSize = "2rem";
     }
     display.value = displayValue;
 }
 
-//Event listeners and instructions for button area clicks. 
-let keys = document.querySelector('.keys'); //query entire div containing all buttons
+let keys = document.querySelector('.keys');
 keys.addEventListener('click', (event) => {
-  let target = event.target; //Record the details of the area where the mouse clicked
-  if (!target.matches('button')) { //Don't worry about anything that isn't a button!
+  let target = event.target;
+  if (!target.matches('button')) {
     return;
   }
   if (target.classList.contains('operator')) {
@@ -48,12 +44,12 @@ keys.addEventListener('click', (event) => {
   }
   if (target.classList.contains('decimal')) {
     if (secondNumReady) {
-        displayValue = "0."; //If an operator was last clicked, adds decimal with zero to start 2nd number.
+        displayValue = "0.";
         update();
         return;
     }
     if (!displayValue.includes(target.value)) {
-        displayValue += target.value; //Adds decimal to screen but only if there isn't one already
+        displayValue += target.value;
         update();
         return;
     }
@@ -68,33 +64,31 @@ keys.addEventListener('click', (event) => {
     update();
     return;
   }
-  input(target.value); //If it isn't an operator, decimal, or all-clear it must be a number.
+  input(target.value);
   update();
 });
 
-//Pass in the clicked operator and either update variables or calculate depending on situation
 const operatorInput = (op) => {
-    let inputValue = parseFloat(displayValue); //convert string to float
+    let inputValue = parseFloat(displayValue);
     if (operator && secondNumReady) { 
-        operator = op; //Allows alteration of operator before second number is inputted
+        operator = op;
         showOperator(firstNum, operator);
         return;
     }
     if (firstNum === null) {
-      firstNum = inputValue; //If no operator has been pressed yet, save the display value
-    } else if (operator) { //Otherwise we can make a calculation
-        let result = calculate(firstNum, inputValue); //Using a switch statement function
-        let roundedResult = round(result, 5); //Then rounding to 5dp
-        displayValue = String(roundedResult); //...and make it a string again then display answer
-        firstNum = roundedResult; //Prepare for a further calculation
+      firstNum = inputValue;
+    } else if (operator) {
+        let result = calculate(firstNum, inputValue);
+        let roundedResult = round(result, 5);
+        displayValue = String(roundedResult);
+        firstNum = roundedResult;
         showOperator(firstNum, operator);
     }
-    operator = op; //Save the operator 
-    secondNumReady = true; //and we're ready for the next input
+    operator = op;
+    secondNumReady = true;
     showOperator(firstNum, operator)
 }
 
-//Make calculation based on saved first number, saved operator, and whatever is currently on the screen
 const calculate = (a, b) => {
     let answer = "";
     switch(operator) {
@@ -116,10 +110,8 @@ const calculate = (a, b) => {
     return answer;
 }
 
-//Rounds to a given number of dp
 const round = (value, decimals) =>  Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 
-//Show the operator or first side of calculation and operator in the screen area.
 const showOperator = (x, y) => {
     let signArea = document.querySelector(".operatorscreen");
     if (operator === "=") {
@@ -146,7 +138,6 @@ const showOperator = (x, y) => {
     }
 }
 
-//Add keyboard events
 document.addEventListener("keydown", event => {
     switch(event.keyCode) {
         case 48:
