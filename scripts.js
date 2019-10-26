@@ -171,16 +171,16 @@ document.addEventListener("keydown", event => {
         case 57:
             input("9");
             break;
-        case 191:
+        case 111:
             operatorInput("/");
             break;
-        case 189:
+        case 109:
             operatorInput("-");
             break;
-        case 187:
+        case 107:
             operatorInput("+");
             break;
-        case 88:
+        case 106:
             operatorInput("*");
             break;
         case 69:
