@@ -10,4 +10,6 @@ Backspace button
 
 positive/negative button (so it could run calculations like (x - -y) etc)
 
-Key bindings for operator keys are currently set to the numpad operator buttons on a full keyboard. This is due to cross browser and OS laptop keyboard differences. It would be nice to find a nice workaround for any small keyboard.
+Key bindings for operator keys are currently set to the numpad operator buttons on a full keyboard. This is due to cross browser and OS keyboard differences. It would be nice to find a nice workaround for any small keyboard.
+
+On Chrome there is a bug where pressing the return key after a numeric entry (with mouse or keyboard) either repeats the current display value or zeros it. This is possibly to do with using a form input box for the display. The may be a way to disable the return key on this document.
