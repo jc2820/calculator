@@ -3,24 +3,6 @@ let firstNum = null;
 let secondNumReady = false;
 let operator = null;
 
-const input = (num) => {
-    if (secondNumReady) {
-        if (displayValue === "0.") {
-            displayValue = displayValue + num;
-            secondNumReady = false;
-        } else {
-        displayValue = num;
-        secondNumReady = false;
-        }
-    } else {
-        if (displayValue === "0") {
-            displayValue = num;
-        } else {
-            displayValue = displayValue + num;
-        }
-    }
-  }
-
 const update = () => {
     let display = document.querySelector('.screen');
     if (displayValue.length > 9) {
@@ -68,17 +50,35 @@ keys.addEventListener('click', (event) => {
   update();
 });
 
+const input = (num) => {
+    if (secondNumReady) {
+        if (displayValue === "0.") {
+            displayValue = displayValue + num;
+            secondNumReady = false;
+        } else {
+        displayValue = num;
+        secondNumReady = false;
+        }
+    } else {
+        if (displayValue === "0") {
+            displayValue = num;
+        } else {
+            displayValue = displayValue + num;
+        }
+    }
+}
+
 const operatorInput = (op) => {
-    let inputValue = parseFloat(displayValue);
+    let workingValue = parseFloat(displayValue);
     if (operator && secondNumReady) { 
         operator = op;
         showOperator(firstNum, operator);
         return;
     }
-    if (firstNum === null) {
-      firstNum = inputValue;
+    if (!firstNum) {
+      firstNum = workingValue;
     } else if (operator) {
-        let result = calculate(firstNum, inputValue);
+        let result = calculate(firstNum, workingValue);
         let roundedResult = round(result, 5);
         displayValue = String(roundedResult);
         firstNum = roundedResult;
@@ -86,7 +86,8 @@ const operatorInput = (op) => {
     }
     operator = op;
     secondNumReady = true;
-    showOperator(firstNum, operator)
+    showOperator(firstNum, operator);
+    return;
 }
 
 const calculate = (a, b) => {
