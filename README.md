@@ -1,7 +1,13 @@
-# Calculator
+# Calculator by Jamie
+
+---
 
 Creating a calculator as precourse work for FAC winter 2019.  
 See the current version here: https://jc2820.github.io/calculator/
+
+* I opted for a simple navy-on-white background design with dotted borders to mark button and display areas using gill sans for text.
+* The calculator works by holding different operand variables against a waiting state that defines what to do with the next click.
+* Switch statements control two-sided calculations, operator display and keydown functionality.
 
 ---
 
@@ -13,10 +19,10 @@ See the current version here: https://jc2820.github.io/calculator/
 * Base the user stories on the freecodecamp calculator project.
 
 **User stories (from the freecodecamp calculator project)**
-* My calculator should contain a clickable element containing an =.
+* My calculator should contain a clickable element containing an equals sign.
 * My calculator should contain 10 clickable elements containing one number each from 0-9.
 * My calculator should contain 4 clickable elements each containing one of the 4 primary mathematical operators.
-* My calculator should contain A clickable element containing a . with a corresponding id="decimal".
+* My calculator should contain A clickable element containing a decimal point.
 * My calculator should contain a clickable 'clear' element.
 * My calculator should contain an element to display values.
 * At any time, pressing the clear button clears the input and output values, and returns the calculator to its initialized state. 0 should be shown in the element with the id of “display”.
