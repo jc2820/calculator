@@ -3,6 +3,8 @@
 Creating a calculator as precourse work for FAC winter 2019.  
 See the current version here: https://jc2820.github.io/calculator/
 
+---
+
 ### Requirements
 
 * Hosted on github.
@@ -27,7 +29,9 @@ See the current version here: https://jc2820.github.io/calculator/
 * Pressing an operator immediately following = should start a new calculation that operates on the result of the previous evaluation.
 * My calculator should have several decimal places of precision when it comes to rounding (note that there is no exact standard, but you should be able to handle calculations like 2 / 7 with reasonable precision to at least 4 decimal places).
 
-### Possible further improvements
+---
+
+### Possible further improvements on my current version
 * Commas automatically entered at appropriate thousands in the display.
 * Backspace button
 * positive/negative button (so it could run calculations like (x - -y) etc)
